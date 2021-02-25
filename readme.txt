@@ -11,4 +11,4 @@ Then you need some manual work, clean the useless picture, to make sure output p
 
 finally you can run python mydogfacenet，model will saved in data/model, if the progress is interupt,it will not restart from begining , it will reload the saved model and continue. but for now it will not showed in the progress (maybe add a text file to save the current epoch will make this part better, to do this ,you will need change already_step in the define area)
 
-from output_original you can get all the output from by GuillaumeMougeot's DogFaceNet with his data source, and output_new is using somedoghead as data source. In my opinion, the backgrond of pictures(which ), dog's head size in pictures and the size of data source
+from output_original you can get all the output from by GuillaumeMougeot's DogFaceNet with his data source, and output_new is using somedoghead as data source. In my opinion, the background of pictures, dog's head size in pictures and the size of data source
