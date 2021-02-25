@@ -1,0 +1,886 @@
+Total number of imported pictures: 8363
+Total number of classes: 1393
+Number of training data: 7666
+Number of training classes: 1254
+Number of testing data: 697
+Number of testing classes: 139
+Defining model 2019.07.29.dogfacenet ...
+2021-02-23 23:36:03.017423: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-02-23 23:36:03.070899: I tensorflow/core/platform/profile_utils/cpu_utils.cc:104] CPU Frequency: 2100000000 Hz
+2021-02-23 23:36:03.074223: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x555cbb205490 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-02-23 23:36:03.074254: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Done.
+Model: "functional_1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            [(None, 224, 224, 3) 0                                            
+__________________________________________________________________________________________________
+conv2d (Conv2D)                 (None, 112, 112, 16) 2352        input_1[0][0]                    
+__________________________________________________________________________________________________
+batch_normalization (BatchNorma (None, 112, 112, 16) 64          conv2d[0][0]                     
+__________________________________________________________________________________________________
+max_pooling2d (MaxPooling2D)    (None, 37, 37, 16)   0           batch_normalization[0][0]        
+__________________________________________________________________________________________________
+conv2d_1 (Conv2D)               (None, 19, 19, 16)   2304        max_pooling2d[0][0]              
+__________________________________________________________________________________________________
+batch_normalization_1 (BatchNor (None, 19, 19, 16)   64          conv2d_1[0][0]                   
+__________________________________________________________________________________________________
+conv2d_2 (Conv2D)               (None, 19, 19, 16)   2304        batch_normalization_1[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_2 (BatchNor (None, 19, 19, 16)   64          conv2d_2[0][0]                   
+__________________________________________________________________________________________________
+add (Add)                       (None, 19, 19, 16)   0           batch_normalization_1[0][0]      
+                                                                 batch_normalization_2[0][0]      
+__________________________________________________________________________________________________
+conv2d_3 (Conv2D)               (None, 19, 19, 16)   2304        add[0][0]                        
+__________________________________________________________________________________________________
+batch_normalization_3 (BatchNor (None, 19, 19, 16)   64          conv2d_3[0][0]                   
+__________________________________________________________________________________________________
+add_1 (Add)                     (None, 19, 19, 16)   0           add[0][0]                        
+                                                                 batch_normalization_3[0][0]      
+__________________________________________________________________________________________________
+conv2d_4 (Conv2D)               (None, 10, 10, 32)   4608        add_1[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_4 (BatchNor (None, 10, 10, 32)   128         conv2d_4[0][0]                   
+__________________________________________________________________________________________________
+conv2d_5 (Conv2D)               (None, 10, 10, 32)   9216        batch_normalization_4[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_5 (BatchNor (None, 10, 10, 32)   128         conv2d_5[0][0]                   
+__________________________________________________________________________________________________
+add_2 (Add)                     (None, 10, 10, 32)   0           batch_normalization_4[0][0]      
+                                                                 batch_normalization_5[0][0]      
+__________________________________________________________________________________________________
+conv2d_6 (Conv2D)               (None, 10, 10, 32)   9216        add_2[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_6 (BatchNor (None, 10, 10, 32)   128         conv2d_6[0][0]                   
+__________________________________________________________________________________________________
+add_3 (Add)                     (None, 10, 10, 32)   0           add_2[0][0]                      
+                                                                 batch_normalization_6[0][0]      
+__________________________________________________________________________________________________
+conv2d_7 (Conv2D)               (None, 5, 5, 64)     18432       add_3[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_7 (BatchNor (None, 5, 5, 64)     256         conv2d_7[0][0]                   
+__________________________________________________________________________________________________
+conv2d_8 (Conv2D)               (None, 5, 5, 64)     36864       batch_normalization_7[0][0]      
+__________________________________________________________________________________________________
+batch_normalization_8 (BatchNor (None, 5, 5, 64)     256         conv2d_8[0][0]                   
+__________________________________________________________________________________________________
+add_4 (Add)                     (None, 5, 5, 64)     0           batch_normalization_7[0][0]      
+                                                                 batch_normalization_8[0][0]      
+__________________________________________________________________________________________________
+conv2d_9 (Conv2D)               (None, 5, 5, 64)     36864       add_4[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_9 (BatchNor (None, 5, 5, 64)     256         conv2d_9[0][0]                   
+__________________________________________________________________________________________________
+add_5 (Add)                     (None, 5, 5, 64)     0           add_4[0][0]                      
+                                                                 batch_normalization_9[0][0]      
+__________________________________________________________________________________________________
+conv2d_10 (Conv2D)              (None, 3, 3, 128)    73728       add_5[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_10 (BatchNo (None, 3, 3, 128)    512         conv2d_10[0][0]                  
+__________________________________________________________________________________________________
+conv2d_11 (Conv2D)              (None, 3, 3, 128)    147456      batch_normalization_10[0][0]     
+__________________________________________________________________________________________________
+batch_normalization_11 (BatchNo (None, 3, 3, 128)    512         conv2d_11[0][0]                  
+__________________________________________________________________________________________________
+add_6 (Add)                     (None, 3, 3, 128)    0           batch_normalization_10[0][0]     
+                                                                 batch_normalization_11[0][0]     
+__________________________________________________________________________________________________
+conv2d_12 (Conv2D)              (None, 3, 3, 128)    147456      add_6[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_12 (BatchNo (None, 3, 3, 128)    512         conv2d_12[0][0]                  
+__________________________________________________________________________________________________
+add_7 (Add)                     (None, 3, 3, 128)    0           add_6[0][0]                      
+                                                                 batch_normalization_12[0][0]     
+__________________________________________________________________________________________________
+conv2d_13 (Conv2D)              (None, 2, 2, 512)    589824      add_7[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_13 (BatchNo (None, 2, 2, 512)    2048        conv2d_13[0][0]                  
+__________________________________________________________________________________________________
+conv2d_14 (Conv2D)              (None, 2, 2, 512)    2359296     batch_normalization_13[0][0]     
+__________________________________________________________________________________________________
+batch_normalization_14 (BatchNo (None, 2, 2, 512)    2048        conv2d_14[0][0]                  
+__________________________________________________________________________________________________
+add_8 (Add)                     (None, 2, 2, 512)    0           batch_normalization_13[0][0]     
+                                                                 batch_normalization_14[0][0]     
+__________________________________________________________________________________________________
+conv2d_15 (Conv2D)              (None, 2, 2, 512)    2359296     add_8[0][0]                      
+__________________________________________________________________________________________________
+batch_normalization_15 (BatchNo (None, 2, 2, 512)    2048        conv2d_15[0][0]                  
+__________________________________________________________________________________________________
+add_9 (Add)                     (None, 2, 2, 512)    0           add_8[0][0]                      
+                                                                 batch_normalization_15[0][0]     
+__________________________________________________________________________________________________
+global_average_pooling2d (Globa (None, 512)          0           add_9[0][0]                      
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 512)          0           global_average_pooling2d[0][0]   
+__________________________________________________________________________________________________
+dropout (Dropout)               (None, 512)          0           flatten[0][0]                    
+__________________________________________________________________________________________________
+dense (Dense)                   (None, 32)           16384       dropout[0][0]                    
+__________________________________________________________________________________________________
+lambda (Lambda)                 (None, 32)           0           dense[0][0]                      
+==================================================================================================
+Total params: 5,826,992
+Trainable params: 5,822,448
+Non-trainable params: 4,544
+__________________________________________________________________________________________________
+None
+WARNING:tensorflow:From /home/zhao/DogFaceNet/dogfacenet/online_training.py:328: Model.predict_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.predict, which supports generators.
+Beginning epoch number: 0
+Current hard triplet ratio: 0.8187307530779818
+WARNING:tensorflow:From dogfacenet/dogfacenet.py:214: Model.fit_generator (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use Model.fit, which supports generators.
+300/300 [==============================] - 293s 976ms/step - loss: 5.2093 - triplet_acc: 0.4337 - val_loss: 2.7936 - val_triplet_acc: 0.6133
+Beginning epoch number: 1
+Current hard triplet ratio: 0.17614527088082763
+300/300 [==============================] - 174s 579ms/step - loss: 3.1290 - triplet_acc: 0.5970 - val_loss: 2.2384 - val_triplet_acc: 0.6967
+Beginning epoch number: 2
+Current hard triplet ratio: 0.3523917680684513
+300/300 [==============================] - 201s 670ms/step - loss: 3.9732 - triplet_acc: 0.5110 - val_loss: 2.6207 - val_triplet_acc: 0.6400
+Beginning epoch number: 3
+Current hard triplet ratio: 0.26596599011155936
+300/300 [==============================] - 187s 622ms/step - loss: 2.9740 - triplet_acc: 0.5890 - val_loss: 1.9822 - val_triplet_acc: 0.6733
+Beginning epoch number: 4
+Current hard triplet ratio: 0.3710778430814836
+300/300 [==============================] - 202s 675ms/step - loss: 2.9066 - triplet_acc: 0.5480 - val_loss: 1.2734 - val_triplet_acc: 0.7333
+Beginning epoch number: 5
+Current hard triplet ratio: 0.37950732954758437
+300/300 [==============================] - 207s 691ms/step - loss: 2.6538 - triplet_acc: 0.4290 - val_loss: 1.1023 - val_triplet_acc: 0.6000
+Beginning epoch number: 6
+Current hard triplet ratio: 0.41288335929448017
+300/300 [==============================] - 211s 702ms/step - loss: 2.5223 - triplet_acc: 0.2967 - val_loss: 1.1040 - val_triplet_acc: 0.4667
+Beginning epoch number: 7
+Current hard triplet ratio: 0.43138080283023533
+300/300 [==============================] - 216s 718ms/step - loss: 2.4274 - triplet_acc: 0.2503 - val_loss: 0.9871 - val_triplet_acc: 0.5067
+Beginning epoch number: 8
+Current hard triplet ratio: 0.44524913887383005
+300/300 [==============================] - 215s 718ms/step - loss: 2.3526 - triplet_acc: 0.2630 - val_loss: 1.1896 - val_triplet_acc: 0.4300
+Beginning epoch number: 9
+Current hard triplet ratio: 0.4564772917252609
+300/300 [==============================] - 221s 735ms/step - loss: 2.2209 - triplet_acc: 0.2847 - val_loss: 1.1704 - val_triplet_acc: 0.4267
+Beginning epoch number: 10
+Current hard triplet ratio: 0.4769753801505018
+300/300 [==============================] - 224s 746ms/step - loss: 2.1500 - triplet_acc: 0.3077 - val_loss: 0.9471 - val_triplet_acc: 0.4767
+Beginning epoch number: 11
+Current hard triplet ratio: 0.4883774163283342
+300/300 [==============================] - 222s 740ms/step - loss: 2.1791 - triplet_acc: 0.3070 - val_loss: 0.8674 - val_triplet_acc: 0.5967
+Beginning epoch number: 12
+Current hard triplet ratio: 0.4836573776648743
+300/300 [==============================] - 224s 746ms/step - loss: 2.1527 - triplet_acc: 0.3000 - val_loss: 0.9840 - val_triplet_acc: 0.5433
+Beginning epoch number: 13
+Current hard triplet ratio: 0.4879350737986114
+300/300 [==============================] - 224s 748ms/step - loss: 2.1229 - triplet_acc: 0.3157 - val_loss: 0.9933 - val_triplet_acc: 0.5067
+Beginning epoch number: 14
+Current hard triplet ratio: 0.4928094451744639
+300/300 [==============================] - 225s 749ms/step - loss: 2.0862 - triplet_acc: 0.3227 - val_loss: 1.0502 - val_triplet_acc: 0.5433
+Beginning epoch number: 15
+Current hard triplet ratio: 0.4988741843181382
+300/300 [==============================] - 224s 748ms/step - loss: 2.0846 - triplet_acc: 0.3163 - val_loss: 0.9427 - val_triplet_acc: 0.5633
+Beginning epoch number: 16
+Current hard triplet ratio: 0.4991355262015589
+300/300 [==============================] - 222s 741ms/step - loss: 2.0086 - triplet_acc: 0.3403 - val_loss: 0.8764 - val_triplet_acc: 0.5367
+Beginning epoch number: 17
+Current hard triplet ratio: 0.5119476755523836
+300/300 [==============================] - 228s 760ms/step - loss: 2.2798 - triplet_acc: 0.2553 - val_loss: 0.8620 - val_triplet_acc: 0.5700
+Beginning epoch number: 18
+Current hard triplet ratio: 0.46770226162671524
+300/300 [==============================] - 220s 734ms/step - loss: 2.0149 - triplet_acc: 0.3413 - val_loss: 0.9680 - val_triplet_acc: 0.5000
+Beginning epoch number: 19
+Current hard triplet ratio: 0.5108781030488736
+300/300 [==============================] - 227s 755ms/step - loss: 2.2388 - triplet_acc: 0.2590 - val_loss: 0.8983 - val_triplet_acc: 0.5700
+Beginning epoch number: 20
+Current hard triplet ratio: 0.47413993696536233
+300/300 [==============================] - 217s 725ms/step - loss: 1.9122 - triplet_acc: 0.3697 - val_loss: 0.7684 - val_triplet_acc: 0.6000
+Beginning epoch number: 21
+Current hard triplet ratio: 0.528656853898652
+300/300 [==============================] - 232s 773ms/step - loss: 2.1999 - triplet_acc: 0.2793 - val_loss: 0.8509 - val_triplet_acc: 0.5433
+Beginning epoch number: 22
+Current hard triplet ratio: 0.4803288838582135
+300/300 [==============================] - 223s 742ms/step - loss: 1.9681 - triplet_acc: 0.3503 - val_loss: 0.9212 - val_triplet_acc: 0.5733
+Beginning epoch number: 23
+Current hard triplet ratio: 0.5189121483929628
+300/300 [==============================] - 226s 752ms/step - loss: 2.1657 - triplet_acc: 0.2857 - val_loss: 0.9032 - val_triplet_acc: 0.5800
+Beginning epoch number: 24
+Current hard triplet ratio: 0.4858238712284203
+300/300 [==============================] - 222s 741ms/step - loss: 1.9015 - triplet_acc: 0.3667 - val_loss: 0.8131 - val_triplet_acc: 0.6233
+Beginning epoch number: 25
+Current hard triplet ratio: 0.5305571454029795
+300/300 [==============================] - 232s 773ms/step - loss: 2.1945 - triplet_acc: 0.2873 - val_loss: 0.8522 - val_triplet_acc: 0.5733
+Beginning epoch number: 26
+Current hard triplet ratio: 0.48117971351378785
+300/300 [==============================] - 223s 744ms/step - loss: 1.8186 - triplet_acc: 0.3883 - val_loss: 0.7479 - val_triplet_acc: 0.6667
+Beginning epoch number: 27
+Current hard triplet ratio: 0.5454108505574199
+300/300 [==============================] - 231s 770ms/step - loss: 2.1001 - triplet_acc: 0.3137 - val_loss: 0.7601 - val_triplet_acc: 0.5967
+Beginning epoch number: 28
+Current hard triplet ratio: 0.49656128594027965
+300/300 [==============================] - 224s 748ms/step - loss: 1.8328 - triplet_acc: 0.3910 - val_loss: 0.8099 - val_triplet_acc: 0.6233
+Beginning epoch number: 29
+Current hard triplet ratio: 0.5428456767124771
+300/300 [==============================] - 233s 775ms/step - loss: 2.0645 - triplet_acc: 0.3197 - val_loss: 0.7621 - val_triplet_acc: 0.6767
+Beginning epoch number: 30
+Current hard triplet ratio: 0.5024969321982201
+300/300 [==============================] - 229s 762ms/step - loss: 2.0557 - triplet_acc: 0.3177 - val_loss: 0.7122 - val_triplet_acc: 0.6733
+Beginning epoch number: 31
+Current hard triplet ratio: 0.5039695675869131
+300/300 [==============================] - 228s 762ms/step - loss: 2.0523 - triplet_acc: 0.3207 - val_loss: 0.8416 - val_triplet_acc: 0.5900
+Beginning epoch number: 32
+Current hard triplet ratio: 0.5045484896303292
+300/300 [==============================] - 228s 761ms/step - loss: 1.9847 - triplet_acc: 0.3350 - val_loss: 0.9200 - val_triplet_acc: 0.6333
+Beginning epoch number: 33
+Current hard triplet ratio: 0.5160378115900771
+300/300 [==============================] - 229s 764ms/step - loss: 2.0096 - triplet_acc: 0.3373 - val_loss: 0.8441 - val_triplet_acc: 0.6333
+Beginning epoch number: 34
+Current hard triplet ratio: 0.5117837781178471
+300/300 [==============================] - 229s 764ms/step - loss: 1.9498 - triplet_acc: 0.3523 - val_loss: 0.6186 - val_triplet_acc: 0.6833
+Beginning epoch number: 35
+Current hard triplet ratio: 0.5220789395489885
+300/300 [==============================] - 228s 759ms/step - loss: 1.9446 - triplet_acc: 0.3597 - val_loss: 0.8365 - val_triplet_acc: 0.6033
+Beginning epoch number: 36
+Current hard triplet ratio: 0.5229870143834673
+300/300 [==============================] - 228s 760ms/step - loss: 1.9583 - triplet_acc: 0.3513 - val_loss: 0.6426 - val_triplet_acc: 0.6533
+Beginning epoch number: 37
+Current hard triplet ratio: 0.5206046263716455
+300/300 [==============================] - 228s 761ms/step - loss: 1.9484 - triplet_acc: 0.3510 - val_loss: 0.5711 - val_triplet_acc: 0.7167
+Beginning epoch number: 38
+Current hard triplet ratio: 0.5223244794015431
+300/300 [==============================] - 229s 764ms/step - loss: 1.9270 - triplet_acc: 0.3600 - val_loss: 0.5943 - val_triplet_acc: 0.7300
+Beginning epoch number: 39
+Current hard triplet ratio: 0.5260696261919826
+300/300 [==============================] - 235s 783ms/step - loss: 1.9010 - triplet_acc: 0.3677 - val_loss: 0.7520 - val_triplet_acc: 0.6433
+Beginning epoch number: 40
+Current hard triplet ratio: 0.5306455303810871
+300/300 [==============================] - 234s 780ms/step - loss: 1.8193 - triplet_acc: 0.4007 - val_loss: 0.6997 - val_triplet_acc: 0.6433
+Beginning epoch number: 41
+Current hard triplet ratio: 0.5452837767674718
+300/300 [==============================] - 234s 779ms/step - loss: 1.8829 - triplet_acc: 0.3793 - val_loss: 0.6853 - val_triplet_acc: 0.6467
+Beginning epoch number: 42
+Current hard triplet ratio: 0.5338496032489124
+300/300 [==============================] - 234s 779ms/step - loss: 1.8550 - triplet_acc: 0.3773 - val_loss: 0.6244 - val_triplet_acc: 0.7367
+Beginning epoch number: 43
+Current hard triplet ratio: 0.5388492070966687
+300/300 [==============================] - 234s 779ms/step - loss: 1.8391 - triplet_acc: 0.3877 - val_loss: 0.6894 - val_triplet_acc: 0.7200
+Beginning epoch number: 44
+Current hard triplet ratio: 0.5417093558004952
+300/300 [==============================] - 232s 773ms/step - loss: 1.7658 - triplet_acc: 0.4073 - val_loss: 0.5650 - val_triplet_acc: 0.7500
+Beginning epoch number: 45
+Current hard triplet ratio: 0.5551063129370798
+300/300 [==============================] - 238s 794ms/step - loss: 1.8053 - triplet_acc: 0.4060 - val_loss: 0.5520 - val_triplet_acc: 0.7000
+Beginning epoch number: 46
+Current hard triplet ratio: 0.5478411837618195
+300/300 [==============================] - 233s 777ms/step - loss: 1.7318 - triplet_acc: 0.4107 - val_loss: 0.6169 - val_triplet_acc: 0.7200
+Beginning epoch number: 47
+Current hard triplet ratio: 0.5614274876447769
+300/300 [==============================] - 237s 791ms/step - loss: 1.7371 - triplet_acc: 0.4253 - val_loss: 0.6391 - val_triplet_acc: 0.7067
+Beginning epoch number: 48
+Current hard triplet ratio: 0.5604330255610586
+300/300 [==============================] - 237s 790ms/step - loss: 1.7571 - triplet_acc: 0.4220 - val_loss: 0.4746 - val_triplet_acc: 0.7767
+Beginning epoch number: 49
+Current hard triplet ratio: 0.556723592495558
+300/300 [==============================] - 238s 793ms/step - loss: 1.7331 - triplet_acc: 0.4307 - val_loss: 0.4422 - val_triplet_acc: 0.7700
+Beginning epoch number: 50
+Current hard triplet ratio: 0.5611795318847517
+300/300 [==============================] - 238s 793ms/step - loss: 1.6410 - triplet_acc: 0.4447 - val_loss: 0.4867 - val_triplet_acc: 0.7767
+Beginning epoch number: 51
+Current hard triplet ratio: 0.5786810219374815
+300/300 [==============================] - 242s 807ms/step - loss: 1.7405 - triplet_acc: 0.4323 - val_loss: 0.5279 - val_triplet_acc: 0.7533
+Beginning epoch number: 52
+Current hard triplet ratio: 0.5598021043984656
+300/300 [==============================] - 236s 786ms/step - loss: 1.6743 - triplet_acc: 0.4373 - val_loss: 0.5048 - val_triplet_acc: 0.7600
+Beginning epoch number: 53
+Current hard triplet ratio: 0.5723026102048231
+300/300 [==============================] - 238s 794ms/step - loss: 1.7050 - triplet_acc: 0.4350 - val_loss: 0.5680 - val_triplet_acc: 0.7467
+Beginning epoch number: 54
+Current hard triplet ratio: 0.5664736659630148
+300/300 [==============================] - 237s 790ms/step - loss: 1.6161 - triplet_acc: 0.4647 - val_loss: 0.5206 - val_triplet_acc: 0.7800
+Beginning epoch number: 55
+Current hard triplet ratio: 0.5835085062838395
+300/300 [==============================] - 242s 807ms/step - loss: 1.6331 - triplet_acc: 0.4507 - val_loss: 0.4853 - val_triplet_acc: 0.7367
+Beginning epoch number: 56
+Current hard triplet ratio: 0.5802175647916107
+300/300 [==============================] - 243s 810ms/step - loss: 1.6492 - triplet_acc: 0.4553 - val_loss: 0.4440 - val_triplet_acc: 0.7833
+Beginning epoch number: 57
+Current hard triplet ratio: 0.5771131394482998
+300/300 [==============================] - 243s 809ms/step - loss: 1.6010 - triplet_acc: 0.4607 - val_loss: 0.4345 - val_triplet_acc: 0.7933
+Beginning epoch number: 58
+Current hard triplet ratio: 0.5864496642111864
+300/300 [==============================] - 240s 799ms/step - loss: 1.6122 - triplet_acc: 0.4677 - val_loss: 0.4825 - val_triplet_acc: 0.7733
+Beginning epoch number: 59
+Current hard triplet ratio: 0.5842563337974581
+300/300 [==============================] - 244s 813ms/step - loss: 1.5237 - triplet_acc: 0.4883 - val_loss: 0.5140 - val_triplet_acc: 0.7600
+Beginning epoch number: 60
+Current hard triplet ratio: 0.601766313934951
+300/300 [==============================] - 247s 825ms/step - loss: 1.8180 - triplet_acc: 0.3960 - val_loss: 0.4691 - val_triplet_acc: 0.7700
+Beginning epoch number: 61
+Current hard triplet ratio: 0.5455215875197182
+300/300 [==============================] - 234s 781ms/step - loss: 1.4898 - triplet_acc: 0.4950 - val_loss: 0.6377 - val_triplet_acc: 0.7333
+Beginning epoch number: 62
+Current hard triplet ratio: 0.6085973699995721
+300/300 [==============================] - 246s 819ms/step - loss: 1.7617 - triplet_acc: 0.4147 - val_loss: 0.3722 - val_triplet_acc: 0.8167
+Beginning epoch number: 63
+Current hard triplet ratio: 0.5558706832261211
+300/300 [==============================] - 238s 793ms/step - loss: 1.5022 - triplet_acc: 0.4920 - val_loss: 0.3695 - val_triplet_acc: 0.8500
+Beginning epoch number: 64
+Current hard triplet ratio: 0.6060808541365237
+300/300 [==============================] - 243s 809ms/step - loss: 1.7929 - triplet_acc: 0.4133 - val_loss: 0.4447 - val_triplet_acc: 0.8267
+Beginning epoch number: 65
+Current hard triplet ratio: 0.5501211064431885
+300/300 [==============================] - 236s 788ms/step - loss: 1.4985 - triplet_acc: 0.5037 - val_loss: 0.4605 - val_triplet_acc: 0.8067
+Beginning epoch number: 66
+Current hard triplet ratio: 0.6068245506076771
+300/300 [==============================] - 244s 814ms/step - loss: 1.7054 - triplet_acc: 0.4293 - val_loss: 0.5654 - val_triplet_acc: 0.8033
+Beginning epoch number: 67
+Current hard triplet ratio: 0.566387370572773
+300/300 [==============================] - 238s 793ms/step - loss: 1.4403 - triplet_acc: 0.5127 - val_loss: 0.4288 - val_triplet_acc: 0.7900
+Beginning epoch number: 68
+Current hard triplet ratio: 0.6187218141078396
+300/300 [==============================] - 245s 817ms/step - loss: 1.7208 - triplet_acc: 0.4243 - val_loss: 0.4406 - val_triplet_acc: 0.8067
+Beginning epoch number: 69
+Current hard triplet ratio: 0.5634959983219093
+300/300 [==============================] - 237s 792ms/step - loss: 1.4160 - triplet_acc: 0.5190 - val_loss: 0.4815 - val_triplet_acc: 0.7867
+Beginning epoch number: 70
+Current hard triplet ratio: 0.6237461993834307
+300/300 [==============================] - 248s 827ms/step - loss: 1.6499 - triplet_acc: 0.4447 - val_loss: 0.2908 - val_triplet_acc: 0.8467
+Beginning epoch number: 71
+Current hard triplet ratio: 0.5769672847856536
+300/300 [==============================] - 241s 802ms/step - loss: 1.3770 - triplet_acc: 0.5373 - val_loss: 0.5191 - val_triplet_acc: 0.8067
+Beginning epoch number: 72
+Current hard triplet ratio: 0.6319068636202129
+300/300 [==============================] - 248s 827ms/step - loss: 1.6408 - triplet_acc: 0.4573 - val_loss: 0.4418 - val_triplet_acc: 0.8467
+Beginning epoch number: 73
+Current hard triplet ratio: 0.5787306006728494
+300/300 [==============================] - 242s 805ms/step - loss: 1.3580 - triplet_acc: 0.5423 - val_loss: 0.3168 - val_triplet_acc: 0.8500
+Beginning epoch number: 74
+Current hard triplet ratio: 0.6359356258361775
+300/300 [==============================] - 251s 836ms/step - loss: 1.6353 - triplet_acc: 0.4590 - val_loss: 0.4004 - val_triplet_acc: 0.8233
+Beginning epoch number: 75
+Current hard triplet ratio: 0.5797887706283934
+300/300 [==============================] - 244s 812ms/step - loss: 1.3711 - triplet_acc: 0.5420 - val_loss: 0.3549 - val_triplet_acc: 0.8367
+Beginning epoch number: 76
+Current hard triplet ratio: 0.6331622643373255
+300/300 [==============================] - 250s 835ms/step - loss: 1.5882 - triplet_acc: 0.4667 - val_loss: 0.4142 - val_triplet_acc: 0.8333
+Beginning epoch number: 77
+Current hard triplet ratio: 0.5889611927077115
+300/300 [==============================] - 244s 812ms/step - loss: 1.2812 - triplet_acc: 0.5583 - val_loss: 0.3525 - val_triplet_acc: 0.8400
+Beginning epoch number: 78
+Current hard triplet ratio: 0.6524272261707155
+300/300 [==============================] - 256s 852ms/step - loss: 1.5469 - triplet_acc: 0.4887 - val_loss: 0.4803 - val_triplet_acc: 0.7867
+Beginning epoch number: 79
+Current hard triplet ratio: 0.5971215550718594
+300/300 [==============================] - 242s 806ms/step - loss: 1.2642 - triplet_acc: 0.5713 - val_loss: 0.4493 - val_triplet_acc: 0.8400
+Beginning epoch number: 80
+Current hard triplet ratio: 0.6561363381978571
+300/300 [==============================] - 255s 850ms/step - loss: 1.5584 - triplet_acc: 0.4847 - val_loss: 0.4910 - val_triplet_acc: 0.8333
+Beginning epoch number: 81
+Current hard triplet ratio: 0.5948422887866602
+300/300 [==============================] - 242s 808ms/step - loss: 1.2816 - triplet_acc: 0.5737 - val_loss: 0.5019 - val_triplet_acc: 0.8367
+Beginning epoch number: 82
+Current hard triplet ratio: 0.6523335135613842
+300/300 [==============================] - 258s 860ms/step - loss: 1.4853 - triplet_acc: 0.5017 - val_loss: 0.3218 - val_triplet_acc: 0.8600
+Beginning epoch number: 83
+Current hard triplet ratio: 0.60951713354069
+300/300 [==============================] - 245s 815ms/step - loss: 1.4614 - triplet_acc: 0.5057 - val_loss: 0.4553 - val_triplet_acc: 0.8467
+Beginning epoch number: 84
+Current hard triplet ratio: 0.6143836625131768
+300/300 [==============================] - 246s 820ms/step - loss: 1.4201 - triplet_acc: 0.5187 - val_loss: 0.3519 - val_triplet_acc: 0.8467
+Beginning epoch number: 85
+Current hard triplet ratio: 0.6229044097173827
+300/300 [==============================] - 249s 831ms/step - loss: 1.4160 - triplet_acc: 0.5310 - val_loss: 0.4056 - val_triplet_acc: 0.8367
+Beginning epoch number: 86
+Current hard triplet ratio: 0.6237553204946509
+300/300 [==============================] - 247s 824ms/step - loss: 1.3427 - triplet_acc: 0.5393 - val_loss: 0.4478 - val_triplet_acc: 0.8333
+Beginning epoch number: 87
+Current hard triplet ratio: 0.6391746171173034
+300/300 [==============================] - 250s 833ms/step - loss: 1.4096 - triplet_acc: 0.5217 - val_loss: 0.4806 - val_triplet_acc: 0.8533
+Beginning epoch number: 88
+Current hard triplet ratio: 0.6250836908459416
+300/300 [==============================] - 250s 834ms/step - loss: 1.3739 - triplet_acc: 0.5287 - val_loss: 0.3643 - val_triplet_acc: 0.8433
+Beginning epoch number: 89
+Current hard triplet ratio: 0.63256832346679
+300/300 [==============================] - 249s 831ms/step - loss: 1.3580 - triplet_acc: 0.5433 - val_loss: 0.2911 - val_triplet_acc: 0.8700
+Beginning epoch number: 90
+Current hard triplet ratio: 0.6359345645049849
+300/300 [==============================] - 250s 832ms/step - loss: 1.2961 - triplet_acc: 0.5503 - val_loss: 0.3524 - val_triplet_acc: 0.8600
+Beginning epoch number: 91
+Current hard triplet ratio: 0.649184069238054
+300/300 [==============================] - 252s 840ms/step - loss: 1.3421 - triplet_acc: 0.5447 - val_loss: 0.2990 - val_triplet_acc: 0.8867
+Beginning epoch number: 92
+Current hard triplet ratio: 0.6393167376197015
+300/300 [==============================] - 252s 839ms/step - loss: 1.2515 - triplet_acc: 0.5753 - val_loss: 0.3302 - val_triplet_acc: 0.8767
+Beginning epoch number: 93
+Current hard triplet ratio: 0.6589035493767538
+300/300 [==============================] - 253s 842ms/step - loss: 1.3659 - triplet_acc: 0.5323 - val_loss: 0.3970 - val_triplet_acc: 0.8900
+Beginning epoch number: 94
+Current hard triplet ratio: 0.6342653407202288
+300/300 [==============================] - 248s 826ms/step - loss: 1.3191 - triplet_acc: 0.5443 - val_loss: 0.2853 - val_triplet_acc: 0.9000
+Beginning epoch number: 95
+Current hard triplet ratio: 0.6442196725184072
+300/300 [==============================] - 250s 834ms/step - loss: 1.3342 - triplet_acc: 0.5503 - val_loss: 0.5167 - val_triplet_acc: 0.8533
+Beginning epoch number: 96
+Current hard triplet ratio: 0.6410045279094138
+300/300 [==============================] - 251s 836ms/step - loss: 1.2819 - triplet_acc: 0.5593 - val_loss: 0.3283 - val_triplet_acc: 0.8933
+Beginning epoch number: 97
+Current hard triplet ratio: 0.6522599268436717
+300/300 [==============================] - 253s 843ms/step - loss: 1.3053 - triplet_acc: 0.5580 - val_loss: 0.1762 - val_triplet_acc: 0.9333
+Beginning epoch number: 98
+Current hard triplet ratio: 0.6472006645116383
+300/300 [==============================] - 251s 836ms/step - loss: 1.2546 - triplet_acc: 0.5707 - val_loss: 0.4190 - val_triplet_acc: 0.8667
+Beginning epoch number: 99
+Current hard triplet ratio: 0.6582287277007948
+300/300 [==============================] - 255s 852ms/step - loss: 1.3054 - triplet_acc: 0.5673 - val_loss: 0.3463 - val_triplet_acc: 0.8967
+Beginning epoch number: 100
+Current hard triplet ratio: 0.6471856199818745
+300/300 [==============================] - 249s 831ms/step - loss: 1.2101 - triplet_acc: 0.5840 - val_loss: 0.3785 - val_triplet_acc: 0.8867
+Beginning epoch number: 101
+Current hard triplet ratio: 0.6680735882324058
+300/300 [==============================] - 253s 844ms/step - loss: 1.2326 - triplet_acc: 0.5813 - val_loss: 0.3300 - val_triplet_acc: 0.8833
+Beginning epoch number: 102
+Current hard triplet ratio: 0.6630762374104423
+300/300 [==============================] - 256s 852ms/step - loss: 1.1998 - triplet_acc: 0.5770 - val_loss: 0.4508 - val_triplet_acc: 0.8533
+Beginning epoch number: 103
+Current hard triplet ratio: 0.6703613492842618
+300/300 [==============================] - 255s 851ms/step - loss: 1.2444 - triplet_acc: 0.5763 - val_loss: 0.2214 - val_triplet_acc: 0.9067
+Beginning epoch number: 104
+Current hard triplet ratio: 0.6604679999692056
+300/300 [==============================] - 256s 855ms/step - loss: 1.1691 - triplet_acc: 0.5983 - val_loss: 0.4675 - val_triplet_acc: 0.8633
+Beginning epoch number: 105
+Current hard triplet ratio: 0.6772511576552741
+300/300 [==============================] - 260s 866ms/step - loss: 1.1559 - triplet_acc: 0.5983 - val_loss: 0.4020 - val_triplet_acc: 0.8933
+Beginning epoch number: 106
+Current hard triplet ratio: 0.6802572895363144
+300/300 [==============================] - 259s 863ms/step - loss: 1.2468 - triplet_acc: 0.5850 - val_loss: 0.3770 - val_triplet_acc: 0.8800
+Beginning epoch number: 107
+Current hard triplet ratio: 0.6599442335139757
+300/300 [==============================] - 253s 843ms/step - loss: 1.1593 - triplet_acc: 0.5900 - val_loss: 0.4487 - val_triplet_acc: 0.8733
+Beginning epoch number: 108
+Current hard triplet ratio: 0.6794751921370124
+300/300 [==============================] - 261s 870ms/step - loss: 1.1161 - triplet_acc: 0.6050 - val_loss: 0.4289 - val_triplet_acc: 0.8567
+Beginning epoch number: 109
+Current hard triplet ratio: 0.6893277689710249
+300/300 [==============================] - 260s 865ms/step - loss: 1.2269 - triplet_acc: 0.5923 - val_loss: 0.3130 - val_triplet_acc: 0.8967
+Beginning epoch number: 110
+Current hard triplet ratio: 0.664328857107199
+300/300 [==============================] - 254s 847ms/step - loss: 1.1608 - triplet_acc: 0.6070 - val_loss: 0.3611 - val_triplet_acc: 0.9100
+Beginning epoch number: 111
+Current hard triplet ratio: 0.6791443886903616
+300/300 [==============================] - 262s 873ms/step - loss: 1.1016 - triplet_acc: 0.6180 - val_loss: 0.4166 - val_triplet_acc: 0.8800
+Beginning epoch number: 112
+Current hard triplet ratio: 0.6926793150196912
+300/300 [==============================] - 261s 871ms/step - loss: 1.1639 - triplet_acc: 0.5913 - val_loss: 0.2277 - val_triplet_acc: 0.9200
+Beginning epoch number: 113
+Current hard triplet ratio: 0.6784340637416888
+300/300 [==============================] - 263s 876ms/step - loss: 1.0807 - triplet_acc: 0.6150 - val_loss: 0.2956 - val_triplet_acc: 0.8833
+Beginning epoch number: 114
+Current hard triplet ratio: 0.697505728585586
+300/300 [==============================] - 259s 863ms/step - loss: 1.1062 - triplet_acc: 0.6143 - val_loss: 0.2675 - val_triplet_acc: 0.8967
+Beginning epoch number: 115
+Current hard triplet ratio: 0.6916014927792145
+300/300 [==============================] - 260s 868ms/step - loss: 1.1637 - triplet_acc: 0.6073 - val_loss: 0.4237 - val_triplet_acc: 0.8733
+Beginning epoch number: 116
+Current hard triplet ratio: 0.6784824290999447
+300/300 [==============================] - 258s 861ms/step - loss: 1.0016 - triplet_acc: 0.6260 - val_loss: 0.3899 - val_triplet_acc: 0.8833
+Beginning epoch number: 117
+Current hard triplet ratio: 0.7161557157814298
+300/300 [==============================] - 264s 880ms/step - loss: 1.3443 - triplet_acc: 0.5420 - val_loss: 0.4329 - val_triplet_acc: 0.8967
+Beginning epoch number: 118
+Current hard triplet ratio: 0.6388383530360402
+300/300 [==============================] - 252s 841ms/step - loss: 1.0362 - triplet_acc: 0.6347 - val_loss: 0.3626 - val_triplet_acc: 0.8833
+Beginning epoch number: 119
+Current hard triplet ratio: 0.7079420339176395
+300/300 [==============================] - 264s 880ms/step - loss: 1.2360 - triplet_acc: 0.5703 - val_loss: 0.3880 - val_triplet_acc: 0.8900
+Beginning epoch number: 120
+Current hard triplet ratio: 0.6623259469569446
+300/300 [==============================] - 256s 853ms/step - loss: 1.0384 - triplet_acc: 0.6377 - val_loss: 0.3774 - val_triplet_acc: 0.8833
+Beginning epoch number: 121
+Current hard triplet ratio: 0.7074276470041896
+300/300 [==============================] - 262s 874ms/step - loss: 1.1653 - triplet_acc: 0.5753 - val_loss: 0.3527 - val_triplet_acc: 0.8800
+Beginning epoch number: 122
+Current hard triplet ratio: 0.6781264825417072
+300/300 [==============================] - 261s 871ms/step - loss: 1.0280 - triplet_acc: 0.6520 - val_loss: 0.3627 - val_triplet_acc: 0.8900
+Beginning epoch number: 123
+Current hard triplet ratio: 0.7098768569154081
+300/300 [==============================] - 263s 876ms/step - loss: 1.1312 - triplet_acc: 0.5940 - val_loss: 0.3706 - val_triplet_acc: 0.8767
+Beginning epoch number: 124
+Current hard triplet ratio: 0.6858671962937982
+300/300 [==============================] - 263s 875ms/step - loss: 1.0251 - triplet_acc: 0.6437 - val_loss: 0.2743 - val_triplet_acc: 0.9033
+Beginning epoch number: 125
+Current hard triplet ratio: 0.7105521947196545
+300/300 [==============================] - 264s 880ms/step - loss: 1.1506 - triplet_acc: 0.5943 - val_loss: 0.3601 - val_triplet_acc: 0.8667
+Beginning epoch number: 126
+Current hard triplet ratio: 0.6814454732961699
+300/300 [==============================] - 256s 852ms/step - loss: 1.0207 - triplet_acc: 0.6323 - val_loss: 0.3852 - val_triplet_acc: 0.8967
+Beginning epoch number: 127
+Current hard triplet ratio: 0.7115944557261477
+300/300 [==============================] - 260s 866ms/step - loss: 1.1406 - triplet_acc: 0.5890 - val_loss: 0.4389 - val_triplet_acc: 0.8833
+Beginning epoch number: 128
+Current hard triplet ratio: 0.683714986328324
+300/300 [==============================] - 258s 859ms/step - loss: 0.8601 - triplet_acc: 0.6853 - val_loss: 0.3038 - val_triplet_acc: 0.9100
+Beginning epoch number: 129
+Current hard triplet ratio: 0.7507379674224791
+300/300 [==============================] - 270s 901ms/step - loss: 1.2047 - triplet_acc: 0.5953 - val_loss: 0.3972 - val_triplet_acc: 0.8667
+Beginning epoch number: 130
+Current hard triplet ratio: 0.6692696645156845
+300/300 [==============================] - 254s 846ms/step - loss: 0.9202 - triplet_acc: 0.6700 - val_loss: 0.3804 - val_triplet_acc: 0.8833
+Beginning epoch number: 131
+Current hard triplet ratio: 0.7358476070439706
+300/300 [==============================] - 266s 887ms/step - loss: 1.1387 - triplet_acc: 0.5943 - val_loss: 0.3414 - val_triplet_acc: 0.9033
+Beginning epoch number: 132
+Current hard triplet ratio: 0.684147671160013
+300/300 [==============================] - 257s 856ms/step - loss: 0.8872 - triplet_acc: 0.6810 - val_loss: 0.2509 - val_triplet_acc: 0.8933
+Beginning epoch number: 133
+Current hard triplet ratio: 0.7439823985264865
+300/300 [==============================] - 267s 889ms/step - loss: 1.1126 - triplet_acc: 0.6120 - val_loss: 0.4402 - val_triplet_acc: 0.8833
+Beginning epoch number: 134
+Current hard triplet ratio: 0.6901253204525379
+300/300 [==============================] - 258s 861ms/step - loss: 0.9781 - triplet_acc: 0.6487 - val_loss: 0.4435 - val_triplet_acc: 0.9033
+Beginning epoch number: 135
+Current hard triplet ratio: 0.7217913233931889
+300/300 [==============================] - 263s 877ms/step - loss: 1.0737 - triplet_acc: 0.6183 - val_loss: 0.4442 - val_triplet_acc: 0.9033
+Beginning epoch number: 136
+Current hard triplet ratio: 0.6991476922690395
+300/300 [==============================] - 257s 855ms/step - loss: 0.9099 - triplet_acc: 0.6787 - val_loss: 0.3659 - val_triplet_acc: 0.9000
+Beginning epoch number: 137
+Current hard triplet ratio: 0.7383669409944014
+300/300 [==============================] - 266s 886ms/step - loss: 0.9943 - triplet_acc: 0.6283 - val_loss: 0.2726 - val_triplet_acc: 0.9200
+Beginning epoch number: 138
+Current hard triplet ratio: 0.7178924576560352
+300/300 [==============================] - 262s 872ms/step - loss: 0.9738 - triplet_acc: 0.6487 - val_loss: 0.4087 - val_triplet_acc: 0.8967
+Beginning epoch number: 139
+Current hard triplet ratio: 0.7228271637049383
+300/300 [==============================] - 259s 863ms/step - loss: 1.0709 - triplet_acc: 0.6233 - val_loss: 0.2481 - val_triplet_acc: 0.9167
+Beginning epoch number: 140
+Current hard triplet ratio: 0.6998016719915773
+300/300 [==============================] - 258s 860ms/step - loss: 0.9053 - triplet_acc: 0.6720 - val_loss: 0.5102 - val_triplet_acc: 0.8700
+Beginning epoch number: 141
+Current hard triplet ratio: 0.7395134130282105
+300/300 [==============================] - 268s 893ms/step - loss: 1.0043 - triplet_acc: 0.6453 - val_loss: 0.2830 - val_triplet_acc: 0.9100
+Beginning epoch number: 142
+Current hard triplet ratio: 0.7155054164994514
+300/300 [==============================] - 263s 876ms/step - loss: 0.8989 - triplet_acc: 0.6567 - val_loss: 0.3399 - val_triplet_acc: 0.8900
+Beginning epoch number: 143
+Current hard triplet ratio: 0.741083682360924
+300/300 [==============================] - 266s 886ms/step - loss: 0.9870 - triplet_acc: 0.6513 - val_loss: 0.4154 - val_triplet_acc: 0.9067
+Beginning epoch number: 144
+Current hard triplet ratio: 0.7196467369876645
+300/300 [==============================] - 260s 867ms/step - loss: 0.9807 - triplet_acc: 0.6560 - val_loss: 0.3811 - val_triplet_acc: 0.8833
+Beginning epoch number: 145
+Current hard triplet ratio: 0.7211509366405568
+300/300 [==============================] - 263s 878ms/step - loss: 0.9540 - triplet_acc: 0.6527 - val_loss: 0.3874 - val_triplet_acc: 0.8800
+Beginning epoch number: 146
+Current hard triplet ratio: 0.7276062299160514
+300/300 [==============================] - 268s 893ms/step - loss: 0.9545 - triplet_acc: 0.6500 - val_loss: 0.4556 - val_triplet_acc: 0.8767
+Beginning epoch number: 147
+Current hard triplet ratio: 0.7274806594223502
+300/300 [==============================] - 266s 888ms/step - loss: 0.9642 - triplet_acc: 0.6557 - val_loss: 0.2972 - val_triplet_acc: 0.9100
+Beginning epoch number: 148
+Current hard triplet ratio: 0.7251338984979385
+300/300 [==============================] - 265s 882ms/step - loss: 0.9351 - triplet_acc: 0.6560 - val_loss: 0.2051 - val_triplet_acc: 0.9233
+Beginning epoch number: 149
+Current hard triplet ratio: 0.7321951574395487
+300/300 [==============================] - 267s 891ms/step - loss: 0.9719 - triplet_acc: 0.6603 - val_loss: 0.2965 - val_triplet_acc: 0.9000
+Beginning epoch number: 150
+Current hard triplet ratio: 0.723283752586403
+300/300 [==============================] - 263s 876ms/step - loss: 0.9229 - triplet_acc: 0.6590 - val_loss: 0.5088 - val_triplet_acc: 0.8833
+Beginning epoch number: 151
+Current hard triplet ratio: 0.7351959032482486
+300/300 [==============================] - 266s 886ms/step - loss: 0.9732 - triplet_acc: 0.6530 - val_loss: 0.3545 - val_triplet_acc: 0.9000
+Beginning epoch number: 152
+Current hard triplet ratio: 0.7229578201257463
+300/300 [==============================] - 259s 863ms/step - loss: 0.9241 - triplet_acc: 0.6613 - val_loss: 0.3728 - val_triplet_acc: 0.9133
+Beginning epoch number: 153
+Current hard triplet ratio: 0.734898724868752
+300/300 [==============================] - 266s 888ms/step - loss: 0.9568 - triplet_acc: 0.6563 - val_loss: 0.4803 - val_triplet_acc: 0.8533
+Beginning epoch number: 154
+Current hard triplet ratio: 0.726919795922735
+300/300 [==============================] - 265s 883ms/step - loss: 0.9407 - triplet_acc: 0.6647 - val_loss: 0.3179 - val_triplet_acc: 0.9200
+Beginning epoch number: 155
+Current hard triplet ratio: 0.7308248241887031
+300/300 [==============================] - 266s 887ms/step - loss: 0.8399 - triplet_acc: 0.6680 - val_loss: 0.4710 - val_triplet_acc: 0.8867
+Beginning epoch number: 156
+Current hard triplet ratio: 0.7557969923560607
+300/300 [==============================] - 273s 909ms/step - loss: 0.8856 - triplet_acc: 0.6720 - val_loss: 0.1624 - val_triplet_acc: 0.9400
+Beginning epoch number: 157
+Current hard triplet ratio: 0.7443937067896663
+300/300 [==============================] - 268s 894ms/step - loss: 0.8961 - triplet_acc: 0.6767 - val_loss: 0.2910 - val_triplet_acc: 0.9200
+Beginning epoch number: 158
+Current hard triplet ratio: 0.7417742065553276
+300/300 [==============================] - 269s 898ms/step - loss: 0.8943 - triplet_acc: 0.6710 - val_loss: 0.2840 - val_triplet_acc: 0.9267
+Beginning epoch number: 159
+Current hard triplet ratio: 0.7422266453939605
+300/300 [==============================] - 268s 892ms/step - loss: 0.8954 - triplet_acc: 0.6773 - val_loss: 0.2280 - val_triplet_acc: 0.9267
+Beginning epoch number: 160
+Current hard triplet ratio: 0.7419634041737733
+300/300 [==============================] - 269s 895ms/step - loss: 0.8028 - triplet_acc: 0.6927 - val_loss: 0.3669 - val_triplet_acc: 0.9000
+Beginning epoch number: 161
+Current hard triplet ratio: 0.7652134558101997
+300/300 [==============================] - 273s 911ms/step - loss: 0.8840 - triplet_acc: 0.6803 - val_loss: 0.3107 - val_triplet_acc: 0.9133
+Beginning epoch number: 162
+Current hard triplet ratio: 0.74476975780299
+300/300 [==============================] - 273s 909ms/step - loss: 0.8423 - triplet_acc: 0.6903 - val_loss: 0.3016 - val_triplet_acc: 0.9100
+Beginning epoch number: 163
+Current hard triplet ratio: 0.7552018290487679
+300/300 [==============================] - 272s 907ms/step - loss: 0.9055 - triplet_acc: 0.6717 - val_loss: 0.3094 - val_triplet_acc: 0.9000
+Beginning epoch number: 164
+Current hard triplet ratio: 0.7394663240668498
+300/300 [==============================] - 269s 895ms/step - loss: 0.8387 - triplet_acc: 0.6773 - val_loss: 0.2478 - val_triplet_acc: 0.9333
+Beginning epoch number: 165
+Current hard triplet ratio: 0.7561055960208161
+300/300 [==============================] - 273s 910ms/step - loss: 0.9002 - triplet_acc: 0.6723 - val_loss: 0.5374 - val_triplet_acc: 0.8933
+Beginning epoch number: 166
+Current hard triplet ratio: 0.74077495474994
+300/300 [==============================] - 267s 891ms/step - loss: 0.8253 - triplet_acc: 0.6883 - val_loss: 0.4352 - val_triplet_acc: 0.9067
+Beginning epoch number: 167
+Current hard triplet ratio: 0.7594884795391856
+300/300 [==============================] - 271s 902ms/step - loss: 0.8517 - triplet_acc: 0.6923 - val_loss: 0.2336 - val_triplet_acc: 0.9033
+Beginning epoch number: 168
+Current hard triplet ratio: 0.7528454531560604
+300/300 [==============================] - 271s 905ms/step - loss: 0.8338 - triplet_acc: 0.6847 - val_loss: 0.3739 - val_triplet_acc: 0.8833
+Beginning epoch number: 169
+Current hard triplet ratio: 0.7573448073289581
+300/300 [==============================] - 269s 895ms/step - loss: 0.8191 - triplet_acc: 0.6820 - val_loss: 0.2617 - val_triplet_acc: 0.9300
+Beginning epoch number: 170
+Current hard triplet ratio: 0.761078148652731
+300/300 [==============================] - 272s 907ms/step - loss: 0.8868 - triplet_acc: 0.6747 - val_loss: 0.3799 - val_triplet_acc: 0.9100
+Beginning epoch number: 171
+Current hard triplet ratio: 0.7440743901237413
+300/300 [==============================] - 267s 890ms/step - loss: 0.8144 - triplet_acc: 0.6923 - val_loss: 0.2465 - val_triplet_acc: 0.9133
+Beginning epoch number: 172
+Current hard triplet ratio: 0.7622530847171807
+300/300 [==============================] - 272s 907ms/step - loss: 0.7844 - triplet_acc: 0.7133 - val_loss: 0.4956 - val_triplet_acc: 0.9033
+Beginning epoch number: 173
+Current hard triplet ratio: 0.7699177030432706
+300/300 [==============================] - 272s 907ms/step - loss: 0.7336 - triplet_acc: 0.7073 - val_loss: 0.3182 - val_triplet_acc: 0.8900
+Beginning epoch number: 174
+Current hard triplet ratio: 0.7830622412343985
+300/300 [==============================] - 274s 914ms/step - loss: 0.7566 - triplet_acc: 0.7100 - val_loss: 0.3475 - val_triplet_acc: 0.8867
+Beginning epoch number: 175
+Current hard triplet ratio: 0.7770966943815608
+300/300 [==============================] - 277s 923ms/step - loss: 0.7561 - triplet_acc: 0.7173 - val_loss: 0.3505 - val_triplet_acc: 0.9167
+Beginning epoch number: 176
+Current hard triplet ratio: 0.7772241426638048
+300/300 [==============================] - 279s 929ms/step - loss: 0.7469 - triplet_acc: 0.7037 - val_loss: 0.4879 - val_triplet_acc: 0.8867
+Beginning epoch number: 177
+Current hard triplet ratio: 0.7796096560623311
+300/300 [==============================] - 275s 917ms/step - loss: 0.7278 - triplet_acc: 0.7033 - val_loss: 0.3350 - val_triplet_acc: 0.8900
+Beginning epoch number: 178
+Current hard triplet ratio: 0.7845908627187878
+300/300 [==============================] - 277s 924ms/step - loss: 0.7970 - triplet_acc: 0.7073 - val_loss: 0.2541 - val_triplet_acc: 0.9433
+Beginning epoch number: 179
+Current hard triplet ratio: 0.7666907220439702
+300/300 [==============================] - 274s 912ms/step - loss: 0.7513 - triplet_acc: 0.7193 - val_loss: 0.2865 - val_triplet_acc: 0.9167
+Beginning epoch number: 180
+Current hard triplet ratio: 0.7784602110694765
+300/300 [==============================] - 274s 915ms/step - loss: 0.7440 - triplet_acc: 0.7153 - val_loss: 0.3012 - val_triplet_acc: 0.9033
+Beginning epoch number: 181
+Current hard triplet ratio: 0.7803686211780747
+300/300 [==============================] - 276s 920ms/step - loss: 0.7599 - triplet_acc: 0.7063 - val_loss: 0.3813 - val_triplet_acc: 0.9167
+Beginning epoch number: 182
+Current hard triplet ratio: 0.7762455475762048
+300/300 [==============================] - 277s 925ms/step - loss: 0.7037 - triplet_acc: 0.7170 - val_loss: 0.3464 - val_triplet_acc: 0.9233
+Beginning epoch number: 183
+Current hard triplet ratio: 0.7909114444463166
+300/300 [==============================] - 276s 921ms/step - loss: 0.7519 - triplet_acc: 0.7200 - val_loss: 0.2598 - val_triplet_acc: 0.9300
+Beginning epoch number: 184
+Current hard triplet ratio: 0.7783010758710143
+300/300 [==============================] - 277s 922ms/step - loss: 0.7619 - triplet_acc: 0.7020 - val_loss: 0.5068 - val_triplet_acc: 0.9067
+Beginning epoch number: 185
+Current hard triplet ratio: 0.7757297554859843
+300/300 [==============================] - 277s 922ms/step - loss: 0.7235 - triplet_acc: 0.7207 - val_loss: 0.2318 - val_triplet_acc: 0.9267
+Beginning epoch number: 186
+Current hard triplet ratio: 0.7857234610532715
+300/300 [==============================] - 276s 919ms/step - loss: 0.7339 - triplet_acc: 0.7140 - val_loss: 0.5790 - val_triplet_acc: 0.8867
+Beginning epoch number: 187
+Current hard triplet ratio: 0.7830008671367398
+300/300 [==============================] - 273s 910ms/step - loss: 0.6551 - triplet_acc: 0.7307 - val_loss: 0.4071 - val_triplet_acc: 0.8900
+Beginning epoch number: 188
+Current hard triplet ratio: 0.8038180362011407
+300/300 [==============================] - 280s 933ms/step - loss: 0.7795 - triplet_acc: 0.6907 - val_loss: 0.3131 - val_triplet_acc: 0.9200
+Beginning epoch number: 189
+Current hard triplet ratio: 0.7711788620708964
+300/300 [==============================] - 274s 913ms/step - loss: 0.6822 - triplet_acc: 0.7393 - val_loss: 0.2591 - val_triplet_acc: 0.9433
+Beginning epoch number: 190
+Current hard triplet ratio: 0.7966145614970971
+300/300 [==============================] - 276s 919ms/step - loss: 0.6971 - triplet_acc: 0.7287 - val_loss: 0.3752 - val_triplet_acc: 0.9033
+Beginning epoch number: 191
+Current hard triplet ratio: 0.7926624579290831
+300/300 [==============================] - 272s 908ms/step - loss: 0.6636 - triplet_acc: 0.7380 - val_loss: 0.4440 - val_triplet_acc: 0.9033
+Beginning epoch number: 192
+Current hard triplet ratio: 0.8015585751956794
+300/300 [==============================] - 278s 926ms/step - loss: 0.8128 - triplet_acc: 0.6873 - val_loss: 0.3455 - val_triplet_acc: 0.9100
+Beginning epoch number: 193
+Current hard triplet ratio: 0.7626581288264938
+300/300 [==============================] - 271s 903ms/step - loss: 0.6667 - triplet_acc: 0.7410 - val_loss: 0.6441 - val_triplet_acc: 0.8533
+Beginning epoch number: 194
+Current hard triplet ratio: 0.8007288066795535
+300/300 [==============================] - 280s 934ms/step - loss: 0.7921 - triplet_acc: 0.6947 - val_loss: 0.4097 - val_triplet_acc: 0.8833
+Beginning epoch number: 195
+Current hard triplet ratio: 0.7679488227664456
+300/300 [==============================] - 272s 908ms/step - loss: 0.6781 - triplet_acc: 0.7373 - val_loss: 0.5701 - val_triplet_acc: 0.8733
+Beginning epoch number: 196
+Current hard triplet ratio: 0.7976832570600747
+300/300 [==============================] - 277s 922ms/step - loss: 0.6491 - triplet_acc: 0.7500 - val_loss: 0.3974 - val_triplet_acc: 0.9133
+Beginning epoch number: 197
+Current hard triplet ratio: 0.8054367657256225
+300/300 [==============================] - 281s 936ms/step - loss: 0.7361 - triplet_acc: 0.7050 - val_loss: 0.3130 - val_triplet_acc: 0.9067
+Beginning epoch number: 198
+Current hard triplet ratio: 0.7824049873968506
+300/300 [==============================] - 278s 927ms/step - loss: 0.6568 - triplet_acc: 0.7530 - val_loss: 0.4773 - val_triplet_acc: 0.9033
+Beginning epoch number: 199
+Current hard triplet ratio: 0.8033752822028493
+300/300 [==============================] - 282s 941ms/step - loss: 0.7592 - triplet_acc: 0.7093 - val_loss: 0.3815 - val_triplet_acc: 0.9100
+Beginning epoch number: 200
+Current hard triplet ratio: 0.7764131786358007
+300/300 [==============================] - 279s 932ms/step - loss: 0.6020 - triplet_acc: 0.7530 - val_loss: 0.5596 - val_triplet_acc: 0.8767
+Beginning epoch number: 201
+Current hard triplet ratio: 0.8181809860133402
+300/300 [==============================] - 283s 943ms/step - loss: 0.7437 - triplet_acc: 0.7127 - val_loss: 0.5915 - val_triplet_acc: 0.8767
+Beginning epoch number: 202
+Current hard triplet ratio: 0.7804303781705257
+300/300 [==============================] - 277s 925ms/step - loss: 0.6617 - triplet_acc: 0.7413 - val_loss: 0.5098 - val_triplet_acc: 0.8667
+Beginning epoch number: 203
+Current hard triplet ratio: 0.8020542833804275
+300/300 [==============================] - 283s 943ms/step - loss: 0.7621 - triplet_acc: 0.7110 - val_loss: 0.5033 - val_triplet_acc: 0.8933
+Beginning epoch number: 204
+Current hard triplet ratio: 0.7756651803624214
+300/300 [==============================] - 276s 921ms/step - loss: 0.6356 - triplet_acc: 0.7530 - val_loss: 0.3350 - val_triplet_acc: 0.9267
+Beginning epoch number: 205
+Current hard triplet ratio: 0.8090695043012434
+300/300 [==============================] - 281s 935ms/step - loss: 0.7640 - triplet_acc: 0.7143 - val_loss: 0.3612 - val_triplet_acc: 0.9000
+Beginning epoch number: 206
+Current hard triplet ratio: 0.7751645742597124
+300/300 [==============================] - 277s 923ms/step - loss: 0.5975 - triplet_acc: 0.7573 - val_loss: 0.1703 - val_triplet_acc: 0.9367
+Beginning epoch number: 207
+Current hard triplet ratio: 0.8194152269779723
+300/300 [==============================] - 282s 938ms/step - loss: 0.6465 - triplet_acc: 0.7380 - val_loss: 0.3392 - val_triplet_acc: 0.9033
+Beginning epoch number: 208
+Current hard triplet ratio: 0.8061490197267314
+300/300 [==============================] - 282s 939ms/step - loss: 0.6838 - triplet_acc: 0.7290 - val_loss: 0.3406 - val_triplet_acc: 0.9033
+Beginning epoch number: 209
+Current hard triplet ratio: 0.7961891420934206
+300/300 [==============================] - 277s 922ms/step - loss: 0.5798 - triplet_acc: 0.7617 - val_loss: 0.4370 - val_triplet_acc: 0.9033
+Beginning epoch number: 210
+Current hard triplet ratio: 0.8242611071927367
+300/300 [==============================] - 279s 929ms/step - loss: 0.6862 - triplet_acc: 0.7310 - val_loss: 0.4916 - val_triplet_acc: 0.8733
+Beginning epoch number: 211
+Current hard triplet ratio: 0.7955500321790335
+300/300 [==============================] - 279s 930ms/step - loss: 0.5709 - triplet_acc: 0.7670 - val_loss: 0.4339 - val_triplet_acc: 0.8767
+Beginning epoch number: 212
+Current hard triplet ratio: 0.8267172201540943
+300/300 [==============================] - 288s 961ms/step - loss: 0.6244 - triplet_acc: 0.7450 - val_loss: 0.2782 - val_triplet_acc: 0.9300
+Beginning epoch number: 213
+Current hard triplet ratio: 0.8121057469411239
+300/300 [==============================] - 283s 944ms/step - loss: 0.7108 - triplet_acc: 0.7183 - val_loss: 0.4582 - val_triplet_acc: 0.9100
+Beginning epoch number: 214
+Current hard triplet ratio: 0.7890365388432046
+300/300 [==============================] - 277s 923ms/step - loss: 0.5641 - triplet_acc: 0.7657 - val_loss: 0.3443 - val_triplet_acc: 0.9200
+Beginning epoch number: 215
+Current hard triplet ratio: 0.8285785521671533
+300/300 [==============================] - 286s 953ms/step - loss: 0.6952 - triplet_acc: 0.7240 - val_loss: 0.4601 - val_triplet_acc: 0.8900
+Beginning epoch number: 216
+Current hard triplet ratio: 0.7931517347319492
+300/300 [==============================] - 276s 919ms/step - loss: 0.5466 - triplet_acc: 0.7713 - val_loss: 0.3849 - val_triplet_acc: 0.9100
+Beginning epoch number: 217
+Current hard triplet ratio: 0.8334333993031323
+300/300 [==============================] - 285s 949ms/step - loss: 0.6509 - triplet_acc: 0.7333 - val_loss: 0.3133 - val_triplet_acc: 0.9067
+Beginning epoch number: 218
+Current hard triplet ratio: 0.8049667787902891
+300/300 [==============================] - 281s 938ms/step - loss: 0.6388 - triplet_acc: 0.7393 - val_loss: 0.6423 - val_triplet_acc: 0.8667
+Beginning epoch number: 219
+Current hard triplet ratio: 0.8082056095617308
+300/300 [==============================] - 279s 932ms/step - loss: 0.5822 - triplet_acc: 0.7547 - val_loss: 0.3092 - val_triplet_acc: 0.9133
+Beginning epoch number: 220
+Current hard triplet ratio: 0.8235933273271969
+300/300 [==============================] - 282s 940ms/step - loss: 0.6412 - triplet_acc: 0.7263 - val_loss: 0.4134 - val_triplet_acc: 0.8967
+Beginning epoch number: 221
+Current hard triplet ratio: 0.8075665610045234
+300/300 [==============================] - 279s 932ms/step - loss: 0.6415 - triplet_acc: 0.7470 - val_loss: 0.2730 - val_triplet_acc: 0.9333
+Beginning epoch number: 222
+Current hard triplet ratio: 0.8074948755463622
+300/300 [==============================] - 280s 932ms/step - loss: 0.6396 - triplet_acc: 0.7457 - val_loss: 0.2763 - val_triplet_acc: 0.9133
+Beginning epoch number: 223
+Current hard triplet ratio: 0.8079853613830682
+300/300 [==============================] - 279s 929ms/step - loss: 0.5614 - triplet_acc: 0.7673 - val_loss: 0.4099 - val_triplet_acc: 0.9033
+Beginning epoch number: 224
+Current hard triplet ratio: 0.8293215523010414
+300/300 [==============================] - 288s 959ms/step - loss: 0.5594 - triplet_acc: 0.7700 - val_loss: 0.3915 - val_triplet_acc: 0.8900
+Beginning epoch number: 225
+Current hard triplet ratio: 0.8298897467864109
+300/300 [==============================] - 287s 956ms/step - loss: 0.6372 - triplet_acc: 0.7380 - val_loss: 0.3188 - val_triplet_acc: 0.9100
+Beginning epoch number: 226
+Current hard triplet ratio: 0.8086330474765266
+300/300 [==============================] - 281s 938ms/step - loss: 0.5708 - triplet_acc: 0.7510 - val_loss: 0.2865 - val_triplet_acc: 0.9067
+Beginning epoch number: 227
+Current hard triplet ratio: 0.8267314446688937
+300/300 [==============================] - 287s 956ms/step - loss: 0.5986 - triplet_acc: 0.7633 - val_loss: 0.5571 - val_triplet_acc: 0.8833
+Beginning epoch number: 228
+Current hard triplet ratio: 0.8191125992058992
+300/300 [==============================] - 281s 936ms/step - loss: 0.5841 - triplet_acc: 0.7600 - val_loss: 0.4433 - val_triplet_acc: 0.9067
+Beginning epoch number: 229
+Current hard triplet ratio: 0.8230752309908909
+300/300 [==============================] - 284s 946ms/step - loss: 0.6276 - triplet_acc: 0.7497 - val_loss: 0.5095 - val_triplet_acc: 0.8800
+Beginning epoch number: 230
+Current hard triplet ratio: 0.8112365793648878
+300/300 [==============================] - 282s 938ms/step - loss: 0.5716 - triplet_acc: 0.7513 - val_loss: 0.2822 - val_triplet_acc: 0.9200
+Beginning epoch number: 231
+Current hard triplet ratio: 0.8265082662594033
+300/300 [==============================] - 285s 951ms/step - loss: 0.5953 - triplet_acc: 0.7537 - val_loss: 0.5974 - val_triplet_acc: 0.8767
+Beginning epoch number: 232
+Current hard triplet ratio: 0.8200196123552552
+300/300 [==============================] - 282s 939ms/step - loss: 0.5448 - triplet_acc: 0.7713 - val_loss: 0.5724 - val_triplet_acc: 0.8833
+Beginning epoch number: 233
+Current hard triplet ratio: 0.8339409330057679
+300/300 [==============================] - 285s 951ms/step - loss: 0.5443 - triplet_acc: 0.7617 - val_loss: 0.4245 - val_triplet_acc: 0.9033
+Beginning epoch number: 234
+Current hard triplet ratio: 0.8340735777398562
+300/300 [==============================] - 283s 942ms/step - loss: 0.5480 - triplet_acc: 0.7693 - val_loss: 0.4708 - val_triplet_acc: 0.8900
+Beginning epoch number: 235
+Current hard triplet ratio: 0.8330539737829925
+300/300 [==============================] - 286s 952ms/step - loss: 0.5831 - triplet_acc: 0.7543 - val_loss: 0.4588 - val_triplet_acc: 0.9033
+Beginning epoch number: 236
+Current hard triplet ratio: 0.8233529033032588
+300/300 [==============================] - 278s 927ms/step - loss: 0.5560 - triplet_acc: 0.7687 - val_loss: 0.2737 - val_triplet_acc: 0.9200
+Beginning epoch number: 237
+Current hard triplet ratio: 0.8308342958637764
+300/300 [==============================] - 285s 950ms/step - loss: 0.5609 - triplet_acc: 0.7650 - val_loss: 0.5529 - val_triplet_acc: 0.8700
+Beginning epoch number: 238
+Current hard triplet ratio: 0.8294635479612475
+300/300 [==============================] - 286s 953ms/step - loss: 0.6206 - triplet_acc: 0.7430 - val_loss: 0.2271 - val_triplet_acc: 0.9400
+Beginning epoch number: 239
+Current hard triplet ratio: 0.8131398735525716
+300/300 [==============================] - 281s 937ms/step - loss: 0.5465 - triplet_acc: 0.7750 - val_loss: 0.3285 - val_triplet_acc: 0.9133
+Beginning epoch number: 240
+Current hard triplet ratio: 0.8334643152194228
+300/300 [==============================] - 287s 956ms/step - loss: 0.5409 - triplet_acc: 0.7757 - val_loss: 0.2851 - val_triplet_acc: 0.9200
+Beginning epoch number: 241
+Current hard triplet ratio: 0.8350210637515787
+300/300 [==============================] - 287s 956ms/step - loss: 0.4938 - triplet_acc: 0.7693 - val_loss: 0.3408 - val_triplet_acc: 0.9200
+Beginning epoch number: 242
+Current hard triplet ratio: 0.8482261758296745
+300/300 [==============================] - 286s 953ms/step - loss: 0.5258 - triplet_acc: 0.7730 - val_loss: 0.4087 - val_triplet_acc: 0.9167
+Beginning epoch number: 243
+Current hard triplet ratio: 0.8392270789299063
+300/300 [==============================] - 287s 957ms/step - loss: 0.5375 - triplet_acc: 0.7623 - val_loss: 0.4025 - val_triplet_acc: 0.9000
+Beginning epoch number: 244
+Current hard triplet ratio: 0.8359579498798336
+300/300 [==============================] - 286s 953ms/step - loss: 0.5000 - triplet_acc: 0.7773 - val_loss: 0.4437 - val_triplet_acc: 0.8900
+Beginning epoch number: 245
+Current hard triplet ratio: 0.846491740117002
+300/300 [==============================] - 282s 939ms/step - loss: 0.5646 - triplet_acc: 0.7647 - val_loss: 0.2191 - val_triplet_acc: 0.9533
+Beginning epoch number: 246
+Current hard triplet ratio: 0.828456937053613
+300/300 [==============================] - 287s 956ms/step - loss: 0.5214 - triplet_acc: 0.7733 - val_loss: 0.4920 - val_triplet_acc: 0.8733
+Beginning epoch number: 247
+Current hard triplet ratio: 0.8404652814722379
+300/300 [==============================] - 284s 946ms/step - loss: 0.5397 - triplet_acc: 0.7667 - val_loss: 0.4744 - val_triplet_acc: 0.9000
+Beginning epoch number: 248
+Current hard triplet ratio: 0.8353658331903314
+300/300 [==============================] - 283s 944ms/step - loss: 0.5135 - triplet_acc: 0.7737 - val_loss: 0.3918 - val_triplet_acc: 0.8967
+Beginning epoch number: 249
+Current hard triplet ratio: 0.8426891081230514
+300/300 [==============================] - 285s 948ms/step - loss: 0.5614 - triplet_acc: 0.7580 - val_loss: 0.5262 - val_triplet_acc: 0.9133
