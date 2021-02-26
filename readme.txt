@@ -4,7 +4,7 @@ get anaconda environment:
 conda env create -f environment.yaml
 
 
-If you don't have data source(original pictures with dogs) or want to get the latest data source ,please run "python getAllPicture.py" . If there is an error, please check the path first. If the program run properly,you will get a data.csv which saved the picture name and valuable title.
+If you don't have data source(original pictures with dogs) or want to get the latest data source ,please run "python getAllPicture.py". I have comment a key code in getAllPicture.py please read the code first and uncomment it,after that if there is an error, please check the path. If the program run properly,you will also get a data.csv which saved the picture name and valuable title.
 
 run python facedetect.py to process the original data,you can put new haarcascade into data/haarcascades and change the code after "import area" in facedetect.py to improve the code,in the " for x, y, w, h in faces" you can define the size of output pictures, which may effect the final result.(if you change this you will also need change some setting where with 224*224*3)
 
