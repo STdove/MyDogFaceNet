@@ -1,5 +1,5 @@
 The program is based on https://github.com/GuillaumeMougeot/DogFaceNet.git
-
+the source of pictures is from https://hundehof-meikeva.hpage.com/gallery459656.html  
 get anaconda environment:
 conda env create -f environment.yaml
 

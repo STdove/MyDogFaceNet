@@ -52,7 +52,7 @@ def urlprocess(url):
         return False
     else :
         #wait 1 second each time we request for a page
-        time.sleep(1)
+        time.sleep(10)
     return text
 
 
@@ -88,7 +88,7 @@ def loadpic(piclist,path,originaldata):
             img_path = path+'/'+elem[0]
             # wait for 2 second when we download one image, to make sure server overload not
             urllib.request.urlretrieve(img_url, img_path)
-            time.sleep(2)
+            time.sleep(20)
             originaldata.append(elem)
     # except Exception as info:
     #     print(info)
@@ -100,7 +100,11 @@ def loadpic(piclist,path,originaldata):
 
 def main():
     # set and define area,set necessary parameter,
-    set_url = "https://hundehof-meikeva.hpage.com/gallery459656.html"
+
+
+    #set_url = "https://hundehof-meikeva.hpage.com/gallery459656.html"
+    #to use this program you need to uncommen the code above,please be gentle to the website,access to fast may cause the crash of the website
+
     set_path = "./data/pictures"
     title_path = "./data/data.csv"
     first_row = ("picture", "title")
